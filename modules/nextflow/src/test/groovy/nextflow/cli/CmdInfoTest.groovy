@@ -81,7 +81,7 @@ class CmdInfoTest extends Specification {
         then:
         json.projectName == "nextflow-io/hello"
         json.repository == "https://github.com/nextflow-io/hello"
-        json.localPath == "$tempDir/nextflow-io/hello"
+        json.localPath == "$tempDir/nextflow-io/hello/.nextflow/revs/master"
         json.manifest.mainScript == 'main.nf'
         json.manifest.defaultBranch == 'master'
         json.revisions.current == 'master'
@@ -107,7 +107,7 @@ class CmdInfoTest extends Specification {
         then:
         json.projectName == "nextflow-io/hello"
         json.repository == "https://github.com/nextflow-io/hello"
-        json.localPath == "$tempDir/nextflow-io/hello"
+        json.localPath == "$tempDir/nextflow-io/hello/.nextflow/revs/master"
         json.manifest.mainScript == 'main.nf'
         json.manifest.defaultBranch == 'master'
         json.revisions.current == 'master'

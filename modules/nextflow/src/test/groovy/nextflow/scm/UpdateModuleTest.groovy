@@ -102,16 +102,16 @@ class UpdateModuleTest extends Specification {
 
         then:
         target.resolve('local/pipe_x').exists()
-        target.resolve('local/pipe_x/.git').exists()
-        target.resolve('local/pipe_x/main.nf').exists()
+        target.resolve('local/pipe_x/.nextflow/revs/master/.git').exists()
+        target.resolve('local/pipe_x/.nextflow/revs/master/main.nf').exists()
 
-        target.resolve('local/pipe_x/prj_aaa').exists()
-        target.resolve('local/pipe_x/prj_aaa/file1.txt').text == 'Hello'
-        target.resolve('local/pipe_x/prj_aaa/file2.log').text == 'World'
+        target.resolve('local/pipe_x/.nextflow/revs/master/prj_aaa').exists()
+        target.resolve('local/pipe_x/.nextflow/revs/master/prj_aaa/file1.txt').text == 'Hello'
+        target.resolve('local/pipe_x/.nextflow/revs/master/prj_aaa/file2.log').text == 'World'
 
-        target.resolve('local/pipe_x/prj_bbb').exists()
-        target.resolve('local/pipe_x/prj_bbb/file1.txt').text == 'Ciao'
-        target.resolve('local/pipe_x/prj_bbb/file2.log').text == 'Mondo'
+        target.resolve('local/pipe_x/.nextflow/revs/master/prj_bbb').exists()
+        target.resolve('local/pipe_x/.nextflow/revs/master/prj_bbb/file1.txt').text == 'Ciao'
+        target.resolve('local/pipe_x/.nextflow/revs/master/prj_bbb/file2.log').text == 'Mondo'
     }
 
 
@@ -140,11 +140,11 @@ class UpdateModuleTest extends Specification {
 
         then:
         target.resolve('local/pipe_2').exists()
-        target.resolve('local/pipe_2/.git').exists()
-        target.resolve('local/pipe_2/main.nf').exists()
+        target.resolve('local/pipe_2/.nextflow/revs/master/.git').exists()
+        target.resolve('local/pipe_2/.nextflow/revs/master/main.nf').exists()
 
-        target.resolve('local/pipe_2/prj_aaa').list().size()==0
-        target.resolve('local/pipe_2/prj_bbb').list().size()==0
+        target.resolve('local/pipe_2/.nextflow/revs/master/prj_aaa').list().size()==0
+        target.resolve('local/pipe_2/.nextflow/revs/master/prj_bbb').list().size()==0
     }
 
     def 'should clone selected submodules' () {
@@ -173,16 +173,16 @@ class UpdateModuleTest extends Specification {
 
         then:
         target.resolve('local/pipe_3').exists()
-        target.resolve('local/pipe_3/.git').exists()
-        target.resolve('local/pipe_3/main.nf').exists()
+        target.resolve('local/pipe_3/.nextflow/revs/master/.git').exists()
+        target.resolve('local/pipe_3/.nextflow/revs/master/main.nf').exists()
 
-        target.resolve('local/pipe_3/prj_aaa').list().size()==0
+        target.resolve('local/pipe_3/.nextflow/revs/master/prj_aaa').list().size()==0
 
-        target.resolve('local/pipe_3/prj_bbb').exists()
-        target.resolve('local/pipe_3/prj_bbb/file1.txt').text == 'Ciao'
+        target.resolve('local/pipe_3/.nextflow/revs/master/prj_bbb').exists()
+        target.resolve('local/pipe_3/.nextflow/revs/master/prj_bbb/file1.txt').text == 'Ciao'
 
-        target.resolve('local/pipe_3/prj_ccc').exists()
-        target.resolve('local/pipe_3/prj_ccc/file-x.txt').text == 'x'
+        target.resolve('local/pipe_3/.nextflow/revs/master/prj_ccc').exists()
+        target.resolve('local/pipe_3/.nextflow/revs/master/prj_ccc/file-x.txt').text == 'x'
 
     }
 
